@@ -13,6 +13,10 @@ Since I chose Credit Card data, I would like to emphasis that the new data was h
 "בחרתי לטפל בערכים החסרים בעמודות CREDIT_LIMIT ו-MINIMUM_PAYMENTS באמצעות מילוי ערכי החציון (Median Imputation) של אותן עמודות. בחרתי בחציון ולא בממוצע מכיוון שנתונים פיננסיים אלו נוטים להכיל ערכי קיצון גבוהים (Skewed Data), והחציון מייצג בצורה יציבה יותר את הלקוח הממוצע מבלי להטות את המודל. בנוסף, בוצע נרמול מסוג StandardScaler כדי להביא את כל המשתנים לסקאלה אחידה של מרחק."
 
 What structure are you looking for, and what business decision does it serve?
+In order to find the K-Means I used Elbow and Silhouate methods. Looking at the graphs (in which oresented in the notebook) It can be seen that
+the Elbow Method and the Silhouette Score almost always disagree on the optimal number of clusters (K).The Silhouette Score usually peaks sharply 
+at K = 2 (or sometimes K = 3). It strongly suggests that the data should only be split into two massive, distinct macro-segments (e.g., "Active Users" vs. "Inactive/Low-Spending Users").The Elbow Method usually shows a smooth, continuous decline with a very subtle, ambiguous "elbow" around K = 3,
+K = 4, or even K = 5. It rarely shows a sharp bend at K = 2.
 
 Distance / similarity measure chosen, and why:
 

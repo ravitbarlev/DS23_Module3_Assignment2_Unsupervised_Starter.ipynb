@@ -1,7 +1,7 @@
 # REPORT — Module 3 · Assignment 2 · Unsupervised Learning
 
-**Name:** ___  **ID:** ___  **Date:** ___
-**Chosen option:** ___ (A · Olist segmentation / B · Credit Card / C · Olist anomaly)
+**Name:** Ravit Bar-Lev **ID:** 029290400  **Date:** 11.07/26
+**Chosen option:** B · Credit Card 
 
 > Keep this report in English. There is no ground truth here, so "I argued it is good
 > but the evidence is weak because ___" is a strong, honest answer.
@@ -9,6 +9,9 @@
 ---
 
 ## 1. Framing
+Since I chose Credit Card data, I would like to emphasis that the new data was handeled:
+"בחרתי לטפל בערכים החסרים בעמודות CREDIT_LIMIT ו-MINIMUM_PAYMENTS באמצעות מילוי ערכי החציון (Median Imputation) של אותן עמודות. בחרתי בחציון ולא בממוצע מכיוון שנתונים פיננסיים אלו נוטים להכיל ערכי קיצון גבוהים (Skewed Data), והחציון מייצג בצורה יציבה יותר את הלקוח הממוצע מבלי להטות את המודל. בנוסף, בוצע נרמול מסוג StandardScaler כדי להביא את כל המשתנים לסקאלה אחידה של מרחק."
+
 What structure are you looking for, and what business decision does it serve?
 
 Distance / similarity measure chosen, and why:

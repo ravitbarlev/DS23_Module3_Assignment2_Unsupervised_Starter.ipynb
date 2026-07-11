@@ -33,11 +33,13 @@ They both look for 3 clusters, but because K-Means optimizes around cluster cent
 ## 2. Method & validation
 | Item | Value |
 |---|---|
-| Approaches tried | |
-| Chosen | |
-| Silhouette score | |
-| Cluster sizes | |
-| Stability across seeds / subsamples | |
+| Approaches tried |K-Means, Hierarchical Clustering|
+| Chosen |K-Means (with K=3 clusters based on Elbow + Silhouate |
+| Silhouette score |score for K=3 from silhouette plot, 0.252|
+| Cluster sizes | Run#1 (Seed=10): ARI= 0.9726
+                  Run#2 (Seed=100): ARI= 0.9726
+                  Run#3 (Seed=1024): ARI= 0.9741|
+| Stability across seeds / subsamples |10, 100, 1024|
 
 Cluster Visualization (PCA 2D Projection):
 To visually inspect the discovered customer segments, the high-dimensional dataset was projected into a 2D space using Principal Component Analysis (PCA). The K-Means plot reveals geometric boundaries with linear separations between segments, which is standard for centroid-based models. In contrast, the Hierarchical plot captures alternative groupings that adapt slightly better to the varying densities and skewed clusters inherent to credit card behavior data.

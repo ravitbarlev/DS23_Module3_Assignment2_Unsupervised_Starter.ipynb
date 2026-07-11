@@ -167,7 +167,12 @@ I have checked whether the clusters are genuine behavioral structures or merely 
   2. For claster 1, conduct a lown plan to replace the current customer's behaviour and supply him a lown with better
       interests
   3. For claster 2, conduct a plan in which triggers customers to use the creadit card. for e.g "get 50 USD/IL for every 1000       ILQUSD that you'll spend in this current month.
-- (Anomaly) who reviews the candidates, and the cost of a false alarm - NA
+- (Anomaly) who reviews the candidates, and the cost of a false alarm
+  Minimizing false alarms is a critical constraint for financial operations due to two major cost drivers:
+     Operational Waste- High false-positive rates waste expensive human analytical hours
+     Customer Friction and Churn- Misclassifying a loyal customer as a fraud suspect often results in declining legitimate
+     transactions. 
+     This friction damages brand trust and directly causes customer churn to competing financial institutions
 """
 print(STRUCTURE_CARD)
 

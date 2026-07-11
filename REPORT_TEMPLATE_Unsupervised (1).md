@@ -9,19 +9,24 @@
 ---
 
 ## 1. Framing
-Since I chose Credit Card data, I would like to emphasis that the new data was handeled:
-"בחרתי לטפל בערכים החסרים בעמודות CREDIT_LIMIT ו-MINIMUM_PAYMENTS באמצעות מילוי ערכי החציון (Median Imputation) של אותן עמודות. בחרתי בחציון ולא בממוצע מכיוון שנתונים פיננסיים אלו נוטים להכיל ערכי קיצון גבוהים (Skewed Data), והחציון מייצג בצורה יציבה יותר את הלקוח הממוצע מבלי להטות את המודל. בנוסף, בוצע נרמול מסוג StandardScaler כדי להביא את כל המשתנים לסקאלה אחידה של מרחק."
-
 What structure are you looking for, and what business decision does it serve?
+Answer:
 In order to find the K-Means I used Elbow and Silhouate methods. Looking at the graphs (in which oresented in the notebook) It can be seen that
 the Elbow Method and the Silhouette Score almost always disagree on the optimal number of clusters (K).The Silhouette Score usually peaks sharply 
 at K = 2 (or sometimes K = 3). It strongly suggests that the data should only be split into two massive, distinct macro-segments (e.g., "Active Users" vs. "Inactive/Low-Spending Users").The Elbow Method usually shows a smooth, continuous decline with a very subtle, ambiguous "elbow" around K = 3,
 K = 4, or even K = 5. It rarely shows a sharp bend at K = 2.
+To keep a long story short, I chose K=3 because it captures actionable sub-behaviors while maintaining a reasonable Elbow drop
 
 Distance / similarity measure chosen, and why:
+Answer:
+I chose Hierarchical Clustering (Agglomerative Clustering) because it's flexible in terms of claster shape. 
+I also chose optimal number of clusters as K = 3. See above for enlightment.
+I configurated both K-Means and Hierarchical Clustering to look for exactly 3 clusters. This makes it much cleaner to compare how the two different algorithms group the credit card customers.
 
 Feature choices (and what you did about frequency / missing values):
-
+Answer:
+Since I chose Credit Card data, I would like to emphasis that the new data was handeled:
+"בחרתי לטפל בערכים החסרים בעמודות CREDIT_LIMIT ו-MINIMUM_PAYMENTS באמצעות מילוי ערכי החציון (Median Imputation) של אותן עמודות. בחרתי בחציון ולא בממוצע מכיוון שנתונים פיננסיים אלו נוטים להכיל ערכי קיצון גבוהים (Skewed Data), והחציון מייצג בצורה יציבה יותר את הלקוח הממוצע מבלי להטות את המודל. בנוסף, בוצע נרמול מסוג StandardScaler כדי להביא את כל המשתנים לסקאלה אחידה של מרחק"
 ---
 
 ## 2. Method & validation

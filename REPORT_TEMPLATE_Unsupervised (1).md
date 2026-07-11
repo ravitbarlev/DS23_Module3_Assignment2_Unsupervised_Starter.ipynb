@@ -15,7 +15,7 @@ In order to find the K-Means I used Elbow and Silhouate methods. Looking at the 
 the Elbow Method and the Silhouette Score almost always disagree on the optimal number of clusters (K).The Silhouette Score usually peaks sharply 
 at K = 2 (or sometimes K = 3). It strongly suggests that the data should only be split into two massive, distinct macro-segments (e.g., "Active Users" vs. "Inactive/Low-Spending Users").The Elbow Method usually shows a smooth, continuous decline with a very subtle, ambiguous "elbow" around K = 3,
 K = 4, or even K = 5. It rarely shows a sharp bend at K = 2.
-To keep a long story short, I chose K=3 because it captures actionable sub-behaviors while maintaining a reasonable Elbow drop
+To keep a long story short, I chose to continue with K_mean =3 because it captures actionable sub-behaviors while maintaining a reasonable Elbow drop
 
 Distance / similarity measure chosen, and why:
 Answer:
@@ -28,15 +28,22 @@ Answer:
 Since I chose Credit Card data, I would like to emphasis that the new data was handeled:
 "בחרתי לטפל בערכים החסרים בעמודות CREDIT_LIMIT ו-MINIMUM_PAYMENTS באמצעות מילוי ערכי החציון (Median Imputation) של אותן עמודות. בחרתי בחציון ולא בממוצע מכיוון שנתונים פיננסיים אלו נוטים להכיל ערכי קיצון גבוהים (Skewed Data), והחציון מייצג בצורה יציבה יותר את הלקוח הממוצע מבלי להטות את המודל. בנוסף, בוצע נרמול מסוג StandardScaler כדי להביא את כל המשתנים לסקאלה אחידה של מרחק"
 ---
+They both look for 3 clusters, but because K-Means optimizes around cluster centroids (means) and Hierarchical (Ward) builds a tree bottom-up by minimizing variance, their cluster sizes will differ slightly. Why Hierarchical is better than DBSCAN here? Unlike DBSCAN, Hierarchical clustering handles varying densities much more gracefully.
 
 ## 2. Method & validation
 | Item | Value |
 |---|---|
 | Approaches tried | |
-| Chosen k (Elbow vs Silhouette) | |
+| Chosen | |
 | Silhouette score | |
 | Cluster sizes | |
 | Stability across seeds / subsamples | |
+
+Cluster Visualization (PCA 2D Projection):
+To visually inspect the discovered customer segments, the high-dimensional dataset was projected into a 2D space using Principal Component Analysis (PCA). The K-Means plot reveals geometric boundaries with linear separations between segments, which is standard for centroid-based models. In contrast, the Hierarchical plot captures alternative groupings that adapt slightly better to the varying densities and skewed clusters inherent to credit card behavior data.
+
+Model Stability Check:
+To verify that the identified customer segments represent real underlying structures rather than statistical anomalies or random initialization bias, a stability check was conducted. The K-Means algorithm was re-fitted using three distinct random initialization seeds (10, 100, and 2024). The resulting cluster assignments were compared against the baseline model using the Adjusted Rand Index (ARI). All three runs yielded an ARI score close or equal to 1.0000, proving that the clustering solution is exceptionally robust, reproducible, and independent of initial centroid placement.
 
 ---
 
